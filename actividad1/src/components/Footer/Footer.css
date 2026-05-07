@@ -1,0 +1,19 @@
+.footer {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  background-color: var(--landing-navy);
+  border-top: none;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+}
+
+.footer strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer__sub {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+}
