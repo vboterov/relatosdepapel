@@ -1,0 +1,139 @@
+.book-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.book-card:hover {
+  border-color: #cfcfcf;
+  box-shadow: var(--shadow-card);
+}
+
+.book-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.book-card__link:hover {
+  text-decoration: none;
+}
+
+.book-card__media {
+  height: 3.25rem;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #f0f0f0 0%, #fafafa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.book-card__media-inner {
+  font-size: 1.55rem;
+  line-height: 1;
+  opacity: 0.92;
+}
+
+.book-card__body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.book-card__availability {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.book-card__availability--in {
+  color: var(--color-stock-in);
+}
+
+.book-card__availability--out {
+  color: var(--color-stock-out);
+}
+
+.book-card__imprint {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.book-card__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin-top: 0.15rem;
+}
+
+.book-card__author {
+  font-size: 0.86rem;
+  color: var(--color-text-soft);
+  flex: 1;
+}
+
+.book-card__price-block {
+  margin-top: 0.35rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.book-card__price {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.book-card__price-note {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* Variante numerada (Top N en landing): solo orden + título + autor */
+
+.book-card--ranked .book-card__body {
+  padding: 1rem 1rem 1.05rem;
+}
+
+.book-card__rank-row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.book-card__rank {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--landing-navy, var(--color-text));
+  flex-shrink: 0;
+}
+
+.book-card__rank-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.book-card--ranked .book-card__title {
+  margin-top: 0;
+}
+
+.book-card--ranked .book-card__author {
+  flex: 0;
+  margin-top: 0.2rem;
+}
