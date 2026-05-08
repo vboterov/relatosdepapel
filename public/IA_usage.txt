@@ -1,0 +1,16 @@
+1 - Modifica el diseño de la pagina actual basándote a esta: https://bukz.co/search?options%5Bprefix%5D=last&q=el+bigote SOLO EN DISEÑO mantén funcionalidades y nombre original
+
+2 - Cambia el Landing siguiendo la imagen de /Users/valentinaboterov/Maestria/Desarrollo Web/proyectos/image.png considerando que el logo a agregar es /Users/valentinaboterov/Maestria/Desarrollo Web/proyectos/logo.png
+
+3 - Genera por favor un archivo que me sirva como simulacion de la base de datos de una libreria con al menos 200 libros, en al menos 5 categorias, fisicos y digitales y 3 idiomas, que tenga:
+
+    ID
+    Titulo
+    Genero
+    Idioma
+    Descripción/Sinopsis
+    Autor
+    Precio en Colombia
+    Libro digital/fisico
+    Cantidad en Stock
+    Año de publicacion
