@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../context/AuthContext.jsx";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const { user } = useContext(AuthContext);
+
+
+  const { user, logout,isAuthenticated } = useAuth();
   const { pathname } = useLocation();
 
   console.log("[Navbar] render – user:", user ? user.name : "null");

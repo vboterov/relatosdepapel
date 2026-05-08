@@ -1,40 +1,53 @@
-import { useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createContext } from "react";
 import { credentials } from "../data/credentials.js";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  console.log("[AuthProvider] render – user:", user?.username ?? "null");
+
+  const login = (username, password) => {
+    const found = credentials.find(
+      (c) => c.username === username && c.password === password
+    );
+
+    if (found) {
+      const { password: _, ...userData } = found;
+      setUser(userData);
+
+      console.log("[AuthContext] login exitoso:", found.username);
+
+      return { success: true };
+    }
+
+    console.log("[AuthContext] login fallido");
+    return { success: false, error: "Credenciales incorrectas" };
+  };
+
+  const logout = () => {
+    console.log("[AuthContext] logout");
+    setUser(null);
+    navigate("/");
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated: !!user,
+        login,
+        logout,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+}
 
 export function useAuth() {
-    const { user, setUser } = useContext(AuthContext);
-    const navigate = useNavigate();
-  
-    const login = (username, password) => {
-      const found = credentials.find(
-        (c) => c.username === username && c.password === password
-      );
-  
-      if (found) {
-        const { password: _, ...userData } = found;
-        setUser(userData);
-        console.log("🔑 [useAuth] login exitoso – usuario:", found.username);
-        return { success: true };
-      }
-  
-      console.log("🔑 [useAuth] login fallido – credenciales incorrectas");
-      return { success: false, error: "Credenciales incorrectas" };
-    };
-  
-    const logout = () => {
-      console.log("🔑 [useAuth] logout");
-      setUser(null);
-      navigate("/");
-    };
-  
-    return {
-      user,
-      isAuthenticated: !!user,
-      login,
-      logout,
-    };
-  }
+  return useContext(AuthContext);
+}
